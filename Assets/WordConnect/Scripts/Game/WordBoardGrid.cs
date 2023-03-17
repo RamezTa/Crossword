@@ -52,8 +52,10 @@ namespace WordConnect
 
 			// Create the container object that will hold all the cells
 			boardContainer = new GameObject("board_container", typeof(GridLayoutGroup));
-			boardContainer.transform.SetParent(transform, false);
 
+			boardContainer.transform.SetParent(transform, false);
+			// we are making Right From here
+			boardContainer.GetComponent<GridLayoutGroup>().startCorner = GridLayoutGroup.Corner.UpperRight;
 			ContentSizeFitter contentSizeFitter	= boardContainer.AddComponent<ContentSizeFitter>();
 			contentSizeFitter.verticalFit		= ContentSizeFitter.FitMode.PreferredSize;
 			contentSizeFitter.horizontalFit		= ContentSizeFitter.FitMode.PreferredSize;
