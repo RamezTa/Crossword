@@ -11,7 +11,8 @@ namespace WordConnect
 
 		[SerializeField] private GameObject	container			= null;
 		[SerializeField] private Image		backgroundImage		= null;
-		[SerializeField] private Text		selectedLettersText	= null; 
+		[SerializeField] private Text		selectedLettersText	= null;
+		[SerializeField] private ArabicText arabicText = null;
 
 		#endregion
 
@@ -42,8 +43,10 @@ namespace WordConnect
 			selectedLettersText.color = color;
 
 			backgroundImage.color = packColor;
-
-			selectedLettersText.text = selectedLetters;
+			arabicText.Text = selectedLetters;
+			//selectedLettersText.text = selectedLetters;
+			// Call Arabic Funtion Here
+			
 		}
 
 		public void SetCorrect()

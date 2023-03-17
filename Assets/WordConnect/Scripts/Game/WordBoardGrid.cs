@@ -96,15 +96,15 @@ namespace WordConnect
 
 			List<WordBoardCell> cells = new List<WordBoardCell>();
 
-			for (int i = wordData.BoardRowStartIndex; i <= wordData.BoardRowEndIndex; i++)
-			{
-				for (int j = wordData.BoardColStartIndex; j <= wordData.BoardColEndIndex; j++)
-				{
-					cells.Add(wordBoardCells[i][j]);
-				}
-			}
+            for (int i = wordData.BoardRowStartIndex; i <= wordData.BoardRowEndIndex; i++)
+            {
+                for (int j = wordData.BoardColStartIndex; j <= wordData.BoardColEndIndex; j++)
+                {
+                    cells.Add(wordBoardCells[i][j]);
+                }
+            }
 
-			return cells;
+            return cells;
 		}
 
 		#endregion
@@ -134,21 +134,23 @@ namespace WordConnect
 		/// Creates the GameObjects that will act as a parent to the WordGridCell
 		/// </summary>
 		private void CreateCellPlacements(LevelData levelData)
-		{
-			for (int i = 0; i < levelData.BoardRows; i++)
-			{
-				List<GameObject> row = new List<GameObject>();
+		{  // old Code
+            for (int i = 0; i < levelData.BoardRows; i++)
+            {
+                List<GameObject> row = new List<GameObject>();
 
-				for (int j = 0; j < levelData.BoardCols; j++)
-				{
-					GameObject cellGameObject	= cellPlacementPool.GetObject(boardContainer.transform);
-					cellGameObject.name			= string.Format("cell_{0}_{1}", i, j);
-					row.Add(cellGameObject);
-				}
+                for (int j = 0; j < levelData.BoardCols; j++)
+                {
+                    GameObject cellGameObject = cellPlacementPool.GetObject(boardContainer.transform);
+                    cellGameObject.name = string.Format("cell_{0}_{1}", i, j);
+                    row.Add(cellGameObject);
+                }
 
-				cellPlacements.Add(row);
-			}
-		}
+                cellPlacements.Add(row);
+            }
+
+
+        }
 
 		/// <summary>
 		/// Creates the WordCridCell objects and places them in the correct cell GameObject
@@ -156,14 +158,15 @@ namespace WordConnect
 		private void CreateWordGridCells(ActiveLevel level)
 		{
 			CreateEmptyWordGridCellsList(level.levelData);
+            //old one
+            for (int i = 0; i < level.levelData.Words.Count; i++)
+            {
+                WordData wordData = level.levelData.Words[i];
 
-			for (int i = 0; i < level.levelData.Words.Count; i++)
-			{
-				WordData wordData = level.levelData.Words[i];
+                CreateWordGridCells(level, wordData);
+            }
 
-				CreateWordGridCells(level, wordData);
-			}
-		}
+        }
 
 		/// <summary>
 		/// Adds null values to wordGridCells

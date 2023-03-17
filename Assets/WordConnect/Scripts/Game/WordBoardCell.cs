@@ -38,14 +38,14 @@ namespace WordConnect
 
 		public System.Action<int, int> OnCellClicked { get; set; }
 
-		#endregion
+        #endregion
 
-		#region Public Methods
-
-		/// <summary>
-		/// Invoked when the button for this cell is clicked
-		/// </summary>
-		public void OnClick()
+        #region Public Methods
+      
+        /// <summary>
+        /// Invoked when the button for this cell is clicked
+        /// </summary>
+        public void OnClick()
 		{
 			if (OnCellClicked != null)
 			{

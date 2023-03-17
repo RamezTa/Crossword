@@ -10,13 +10,13 @@ using UnityEditor;
 
 [ExecuteInEditMode]
 public class ArabicText : MonoBehaviour
-{
+{   
     [Multiline]
     public string Text;
     public InputField RefrenceInput;
     public bool ShowTashkeel;
     public bool UseHinduNumbers;
-
+   
     private UnityEngine.UI.Text txt;
 
     private string OldText; // For Refresh on TextChange
@@ -33,6 +33,7 @@ public class ArabicText : MonoBehaviour
 
     public void Start()
     {
+       
         txt = gameObject.GetComponent<UnityEngine.UI.Text>();
         rectTransform = GetComponent<RectTransform>();
     }
